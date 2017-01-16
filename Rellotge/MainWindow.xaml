@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rellotge"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Rellotge" Height="350" Width="525">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="63*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="517" Height="21">
+            <MenuItem Header="Fitxer"/>
+            <MenuItem Header="Ajuda"/>
+        </Menu>
+
     </Grid>
 </Window>
