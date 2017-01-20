@@ -30,5 +30,10 @@ namespace Rellotge
         {
             this.Close();
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Rellotge digital de DAM2","Rellotge");
+        }
     }
 }

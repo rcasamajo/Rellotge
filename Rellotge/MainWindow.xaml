@@ -17,7 +17,7 @@
                 <MenuItem Header="Sortir" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Ajuda">
-                <MenuItem Header="Sobre Rellotge"/>
+                <MenuItem Header="Sobre Rellotge" Click="MenuItem_Click_1"/>
             </MenuItem>
         </Menu>
         <Label x:Name="lblTime" Content="00:00:00" HorizontalAlignment="Left" Margin="170,63,0,0" Grid.Row="1" RenderTransformOrigin="0.658,0.538" VerticalAlignment="Top" FontSize="36"/>
