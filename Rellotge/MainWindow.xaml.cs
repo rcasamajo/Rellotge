@@ -28,6 +28,8 @@ namespace Rellotge
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            comboBox.SelectedIndex = 0;
         }
 
         void Timer_Tick(object sender, EventArgs e)

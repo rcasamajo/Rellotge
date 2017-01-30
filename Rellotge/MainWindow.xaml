@@ -7,19 +7,23 @@
         mc:Ignorable="d"
         Title="Rellotge" Height="350" Width="494"
         Loaded="Window_Loaded" Closing="Window_Closing">
-    <Grid Margin="0,0,2,0">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
             <RowDefinition Height="85*"/>
             <RowDefinition Height="63*"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="517" Height="21">
+        <Menu x:Name="menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="484" Height="35" Grid.RowSpan="2" VerticalContentAlignment="Center" Grid.IsSharedSizeScope="True">
             <MenuItem Header="Fitxer">
                 <MenuItem Header="Sortir" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Ajuda">
                 <MenuItem Header="Sobre Rellotge" Click="MenuItem_Click_1"/>
             </MenuItem>
+            <ComboBox x:Name="comboBox" Width="120">
+                <ComboBoxItem x:Name="cbi1" Content="cbi1"/>
+                <ComboBoxItem x:Name="cbi2" Content="cbi2"/>
+            </ComboBox>
         </Menu>
         <Label x:Name="lblTime" Content="00:00:00" HorizontalAlignment="Left" Margin="170,63,0,0" Grid.Row="1" RenderTransformOrigin="0.658,0.538" VerticalAlignment="Top" FontSize="36"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="75" Margin="40,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95"/>
