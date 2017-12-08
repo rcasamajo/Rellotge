@@ -14,15 +14,17 @@
             <RowDefinition Height="63*"/>
         </Grid.RowDefinitions>
         <Menu x:Name="menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="484" Height="35" Grid.RowSpan="2" VerticalContentAlignment="Center" Grid.IsSharedSizeScope="True">
-            <MenuItem Header="Fitxer">
-                <MenuItem Header="Sortir" Click="MenuItem_Click"/>
+            <MenuItem x:Name="MFitxer" Header="Fitxer">
+                <MenuItem x:Name="MISortir" Header="Sortir" Click="MISortir_Click"/>
             </MenuItem>
-            <MenuItem Header="Ajuda">
-                <MenuItem Header="Sobre Rellotge" Click="MenuItem_Click_1"/>
+            <MenuItem x:Name="MPaisos" Header="Paísos">
+                <MenuItem x:Name="MINouPais" Header="Nou país" Click="MINouPais_Click"/>
+                <MenuItem x:Name="MIEliminarPais" Header="Eliminar país"/>
             </MenuItem>
-            <ComboBox x:Name="comboBox" Width="120">
-                <ComboBoxItem x:Name="cbi1" Content="cbi1"/>
-                <ComboBoxItem x:Name="cbi2" Content="cbi2"/>
+            <MenuItem x:Name="MAjuda" Header="Ajuda">
+                <MenuItem x:Name="MIAbout" Header="Sobre Rellotge" Click="MIAbout_Click"/>
+            </MenuItem>
+            <ComboBox x:Name="CBPaisos" Width="120">
             </ComboBox>
         </Menu>
         <Label x:Name="lblTime" Content="00:00:00" HorizontalAlignment="Left" Margin="170,63,0,0" Grid.Row="1" RenderTransformOrigin="0.658,0.538" VerticalAlignment="Top" FontSize="36"/>

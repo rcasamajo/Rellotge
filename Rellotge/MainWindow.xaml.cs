@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Controls;
 
 namespace Rellotge
 {
@@ -29,7 +30,7 @@ namespace Rellotge
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            comboBox.SelectedIndex = 0;
+            CBPaisos.SelectedIndex = 0;
         }
 
         void Timer_Tick(object sender, EventArgs e)
@@ -57,12 +58,12 @@ namespace Rellotge
             serializer.Serialize(TestFileStream, alarm);
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MISortir_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MIAbout_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Rellotge digital de DAM2","Rellotge");
         }
@@ -70,6 +71,17 @@ namespace Rellotge
         private void tbAlarma_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             alarm.horaAlarma = TBAlarma.Text;
+        }
+
+        private void MINouPais_Click(object sender, RoutedEventArgs e)
+        {
+            DlgNomPais nouDlg = new DlgNomPais();
+            if (nouDlg.ShowDialog() == true)
+            {
+                MenuItem nou = new MenuItem();
+                nou.Header = nouDlg.Resposta;
+                CBPaisos.Items.Add(nou);
+            }
         }
     }
 }

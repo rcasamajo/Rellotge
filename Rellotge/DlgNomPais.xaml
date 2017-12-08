@@ -1,0 +1,20 @@
+﻿<Window x:Name="DlgNomPais1" x:Class="Rellotge.DlgNomPais"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rellotge"
+        mc:Ignorable="d"
+        Title="Rellotge - Nom país" Height="186.311" Width="424.975" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="202*"/>
+            <ColumnDefinition Width="215*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Escriu el nom del país:" HorizontalAlignment="Left" Margin="44,46,0,0" VerticalAlignment="Top" Width="128"/>
+        <TextBox x:Name="TBNomPais" HorizontalAlignment="Left" Height="23" Margin="177,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TBNomPais_TextChanged" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnOk" Content="Ok" HorizontalAlignment="Left" Margin="19,97,0,0" VerticalAlignment="Top" Width="75" Click="BtnOk_Click" IsDefault="True" IsEnabled="False" Grid.Column="1"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="114,97,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Grid.Column="1"/>
+
+    </Grid>
+</Window>
