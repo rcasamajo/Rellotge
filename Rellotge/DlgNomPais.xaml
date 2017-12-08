@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rellotge"
         mc:Ignorable="d"
-        Title="Rellotge - Nom país" Height="186.311" Width="424.975" ResizeMode="NoResize">
+        Title="Rellotge - Nom país" Height="186.311" Width="424.975" ResizeMode="NoResize" Loaded="DlgNomPais1_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="202*"/>

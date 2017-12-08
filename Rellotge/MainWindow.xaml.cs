@@ -78,9 +78,9 @@ namespace Rellotge
             DlgNomPais nouDlg = new DlgNomPais();
             if (nouDlg.ShowDialog() == true)
             {
-                MenuItem nou = new MenuItem();
-                nou.Header = nouDlg.Resposta;
-                CBPaisos.Items.Add(nou);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = nouDlg.Resposta.Trim();
+                CBPaisos.Items.Add(item);
             }
         }
     }
