@@ -13,13 +13,13 @@ namespace Rellotge
     public partial class MainWindow : Window
     {
         const string FileName = @"..\..\SavedAlarm.bin";
-        private Alarma alarm;
+        private Alarma AlarmaRellotge;
 
         public MainWindow()
         {
-            alarm = new Alarma();
-            alarm.horaAlarma = "11:11";
-            alarm.alarmaActiva = false;
+            AlarmaRellotge = new Alarma();
+            AlarmaRellotge.HoraAlarma = "11:11";
+            AlarmaRellotge.AlarmaActiva = false;
 
             InitializeComponent();
 
@@ -29,8 +29,6 @@ namespace Rellotge
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
-
-            CBPaisos.SelectedIndex = 0;
         }
 
         void Timer_Tick(object sender, EventArgs e)
@@ -44,18 +42,18 @@ namespace Rellotge
             {
                 Stream TestFileStream = File.OpenRead(FileName);
                 BinaryFormatter deserializer = new BinaryFormatter();
-                alarm = (Alarma)deserializer.Deserialize(TestFileStream);
+                AlarmaRellotge = (Alarma)deserializer.Deserialize(TestFileStream);
                 TestFileStream.Close();
             }
 
-            TBAlarma.Text = alarm.horaAlarma;
+            TBAlarma.Text = AlarmaRellotge.HoraAlarma;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Stream TestFileStream = File.Create(FileName);
             BinaryFormatter serializer = new BinaryFormatter();
-            serializer.Serialize(TestFileStream, alarm);
+            serializer.Serialize(TestFileStream, AlarmaRellotge);
         }
 
         private void MISortir_Click(object sender, RoutedEventArgs e)
@@ -70,7 +68,7 @@ namespace Rellotge
 
         private void tbAlarma_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            alarm.horaAlarma = TBAlarma.Text;
+            AlarmaRellotge.HoraAlarma = TBAlarma.Text;
         }
 
         private void MINouPais_Click(object sender, RoutedEventArgs e)
