@@ -4,6 +4,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Controls;
+using System.Text.RegularExpressions;
 
 namespace Rellotge
 {
@@ -66,9 +67,14 @@ namespace Rellotge
             MessageBox.Show("Rellotge digital de DAM2","Rellotge");
         }
 
+        // Quan canvia el text del TextBox de l'hora de l'alarma
         private void tbAlarma_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            AlarmaRellotge.HoraAlarma = TBAlarma.Text;
+            // Només actualitzem l'hora de l'alarma si és una hora vàlida
+            if (Regex.IsMatch(TBAlarma.Text, "^[012][0-9]:[0-5][0-9]$"))
+            {
+                AlarmaRellotge.HoraAlarma = TBAlarma.Text;
+            }
         }
 
         private void MINouPais_Click(object sender, RoutedEventArgs e)

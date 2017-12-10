@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Rellotge
@@ -40,6 +41,18 @@ namespace Rellotge
                 BtnOk.IsEnabled = true;
             else
                 BtnOk.IsEnabled = false;
+        }
+
+        // Interceptem les tecles al TextBox del nom del país
+        // Només permetem escriure els caràcters alfabètics i l'espai
+        // La resta de tecles les interceptem posant la propietat Handled de l'event a true
+        private void TBNomPais_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if ( ((e.Key < Key.A) || (e.Key > Key.Z)) 
+                && (e.Key != Key.Enter) 
+                && (e.Key != Key.Delete) && (e.Key != Key.Back) 
+                && (e.Key != Key.Space) )
+                e.Handled = true;
         }
     }
 }

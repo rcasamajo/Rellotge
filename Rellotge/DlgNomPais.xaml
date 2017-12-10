@@ -12,9 +12,9 @@
             <ColumnDefinition Width="215*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Escriu el nom del país:" HorizontalAlignment="Left" Margin="44,46,0,0" VerticalAlignment="Top" Width="128"/>
-        <TextBox x:Name="TBNomPais" HorizontalAlignment="Left" Height="23" Margin="177,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TBNomPais_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TBNomPais" HorizontalAlignment="Left" Height="23" Margin="177,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" TextChanged="TBNomPais_TextChanged" Grid.ColumnSpan="2" PreviewKeyDown="TBNomPais_PreviewKeyDown" MaxLength="25" MaxLines="1">
+        </TextBox>
         <Button x:Name="BtnOk" Content="Ok" HorizontalAlignment="Left" Margin="19,97,0,0" VerticalAlignment="Top" Width="75" Click="BtnOk_Click" IsDefault="True" IsEnabled="False" Grid.Column="1"/>
         <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="114,97,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Grid.Column="1"/>
-
     </Grid>
 </Window>
