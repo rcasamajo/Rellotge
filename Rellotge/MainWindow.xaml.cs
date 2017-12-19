@@ -87,5 +87,15 @@ namespace Rellotge
                 CBPaisos.Items.Add(item);
             }
         }
+
+        private void CBActiva_Checked(object sender, RoutedEventArgs e)
+        {
+            AlarmaRellotge.AlarmaActiva = true;
+        }
+
+        private void CBActiva_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AlarmaRellotge.AlarmaActiva = false;
+        }
     }
 }
