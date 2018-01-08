@@ -23,6 +23,7 @@
             </MenuItem>
             <MenuItem x:Name="MAjuda" Header="Ajuda">
                 <MenuItem x:Name="MIAbout" Header="Sobre Rellotge" Click="MIAbout_Click"/>
+                <MenuItem x:Name="MICheck" Header="Check Alarma object" Click="MICheck_Click"/>
             </MenuItem>
             <ComboBox x:Name="CBPaisos" Width="120">
             </ComboBox>
@@ -30,9 +31,7 @@
         <Label x:Name="lblTime" Content="00:00:00" HorizontalAlignment="Left" Margin="170,63,0,0" Grid.Row="1" RenderTransformOrigin="0.658,0.538" VerticalAlignment="Top" FontSize="36"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="75" Margin="40,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95"/>
         <Label x:Name="label" Content="Alarma" HorizontalAlignment="Left" Margin="65,35,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBAlarma" HorizontalAlignment="Left" Height="23" Margin="65,66,0,0" Grid.Row="2" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Width="47" TextAlignment="Center" Background="#FFCFCFCF" TextChanged="tbAlarma_TextChanged"/>
-        <CheckBox x:Name="CBActiva" Content="Activa" HorizontalAlignment="Left" Margin="140,54,0,0" Grid.Row="2" VerticalAlignment="Top" Checked="CBActiva_Checked" Unchecked="CBActiva_Unchecked">
-        </CheckBox>
-
+        <TextBox x:Name="TBAlarma" Text="{Binding HoraAlarma, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="65,66,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" TextAlignment="Center" Background="#FFCFCFCF" TextChanged="tbAlarma_TextChanged"/>
+        <CheckBox x:Name="CBActiva" Content="Activa" IsChecked="{Binding AlarmaActiva, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="140,54,0,0" Grid.Row="2" VerticalAlignment="Top"/>
     </Grid>
 </Window>

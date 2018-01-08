@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Controls;
 using System.Text.RegularExpressions;
+using System.Windows.Data;
 
 namespace Rellotge
 {
@@ -18,10 +19,6 @@ namespace Rellotge
 
         public MainWindow()
         {
-            AlarmaRellotge = new Alarma();
-            AlarmaRellotge.HoraAlarma = "11:11";
-            AlarmaRellotge.AlarmaActiva = false;
-
             InitializeComponent();
 
             lblTime.Content = DateTime.Now.ToLongTimeString();
@@ -46,8 +43,14 @@ namespace Rellotge
                 AlarmaRellotge = (Alarma)deserializer.Deserialize(TestFileStream);
                 TestFileStream.Close();
             }
+            else
+                AlarmaRellotge = new Alarma();
 
-            TBAlarma.Text = AlarmaRellotge.HoraAlarma;
+
+            // Fixem el DataContext dels elements on volem fer el Data Binding
+            // AlarmaRellotge serà el source (font) de les dades
+            CBActiva.DataContext = AlarmaRellotge;
+            TBAlarma.DataContext = AlarmaRellotge;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -73,7 +76,9 @@ namespace Rellotge
             // Només actualitzem l'hora de l'alarma si és una hora vàlida
             if (Regex.IsMatch(TBAlarma.Text, "^[012][0-9]:[0-5][0-9]$"))
             {
-                AlarmaRellotge.HoraAlarma = TBAlarma.Text;
+                // Actualitzem explícitament el Data Binding
+                BindingExpression binding = TBAlarma.GetBindingExpression(TextBox.TextProperty);
+                binding.UpdateSource();
             }
         }
 
@@ -88,14 +93,9 @@ namespace Rellotge
             }
         }
 
-        private void CBActiva_Checked(object sender, RoutedEventArgs e)
+        private void MICheck_Click(object sender, RoutedEventArgs e)
         {
-            AlarmaRellotge.AlarmaActiva = true;
-        }
-
-        private void CBActiva_Unchecked(object sender, RoutedEventArgs e)
-        {
-            AlarmaRellotge.AlarmaActiva = false;
+            MessageBox.Show("Alarma object: " + this.AlarmaRellotge.HoraAlarma + " - " + this.AlarmaRellotge.AlarmaActiva);
         }
     }
 }

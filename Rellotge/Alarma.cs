@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Rellotge
 {
@@ -10,17 +12,18 @@ namespace Rellotge
     class Alarma
     {
         private String Hora;
+        private Boolean Activa;
 
         public Alarma()
         {
             this.Hora = "00:00";
-            this.AlarmaActiva = false;
+            this.Activa = false;
         }
 
         public Alarma(String hora)
         {
             this.Hora = hora;
-            this.AlarmaActiva = false;
+            this.Activa = false;
         }
 
         public String HoraAlarma
@@ -29,6 +32,12 @@ namespace Rellotge
             set { Hora = value; }
         }
 
-        public bool AlarmaActiva { get; set; }
+        public Boolean AlarmaActiva
+        {
+            get { return Activa; }
+            set {
+                Activa = value;
+            }
+        }
     }
 }
