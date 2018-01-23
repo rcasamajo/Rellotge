@@ -25,7 +25,7 @@
                 <MenuItem x:Name="MIAbout" Header="Sobre Rellotge" Click="MIAbout_Click"/>
                 <MenuItem x:Name="MICheck" Header="Check Alarma object" Click="MICheck_Click"/>
             </MenuItem>
-            <ComboBox x:Name="CBPaisos" Width="120">
+            <ComboBox x:Name="CBPaisos" DisplayMemberPath="NomPais" Width="120">
             </ComboBox>
         </Menu>
         <Label x:Name="lblTime" Content="00:00:00" HorizontalAlignment="Left" Margin="170,63,0,0" Grid.Row="1" RenderTransformOrigin="0.658,0.538" VerticalAlignment="Top" FontSize="36"/>

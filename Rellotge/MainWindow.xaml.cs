@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
+using System.Collections.ObjectModel;
 
 namespace Rellotge
 {
@@ -16,6 +17,7 @@ namespace Rellotge
     {
         const string FileName = @"..\..\SavedAlarm.bin";
         private Alarma AlarmaRellotge;
+        private ObservableCollection<Pais> Paisos;
 
         public MainWindow()
         {
@@ -27,6 +29,11 @@ namespace Rellotge
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            this.Paisos = new ObservableCollection<Pais>();
+
+            // El combo box mostra les dades de la ObservableList de paísos
+            CBPaisos.ItemsSource = this.Paisos;
         }
 
         void Timer_Tick(object sender, EventArgs e)
@@ -82,14 +89,14 @@ namespace Rellotge
             }
         }
 
+        // Afegir un nou país
         private void MINouPais_Click(object sender, RoutedEventArgs e)
         {
             DlgNomPais nouDlg = new DlgNomPais();
             if (nouDlg.ShowDialog() == true)
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = nouDlg.Resposta.Trim();
-                CBPaisos.Items.Add(item);
+                Pais nou = new Pais(nouDlg.Resposta.Trim());
+                Paisos.Add(nou);
             }
         }
 
